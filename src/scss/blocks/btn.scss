@@ -1,0 +1,15 @@
+.btn {
+  display: inline-block;
+
+  padding: 10px 10px;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  color: white;
+  border: none;
+
+  @include font(text);
+  @include text(18, 25);
+  @include active;
+}
