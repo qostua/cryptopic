@@ -285,5 +285,5 @@ const cleanBuild = () => {
 	return del('build/*')
 }
 
-exports.build = series(cleanBuild, parallel(htmlBuild, stylesBuild, svgBuild, retinaBuild, convertWebpBuild, scriptsBuild, scriptsLibsBuild, scriptsModernizrBuild, resourcesBuild, fontsBuild));
+exports.build = series(cleanBuild, parallel(htmlBuild, stylesBuild, svgBuild, scriptsBuild, scriptsLibsBuild, scriptsModernizrBuild, resourcesBuild, fontsBuild));
 exports.cleanBuild = cleanBuild;
