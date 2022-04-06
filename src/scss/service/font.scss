@@ -8,8 +8,9 @@
 // 800: Extra Bold (Ultra Bold)
 // 900: Black (Heavy)
 
-@include font-face("family", "url", 400);
+@include font-face("CascadiaMono", "CascadiaMonoPL-Regular", 400);
 
 body {
   @include font(text);
+  color: white;
 }
