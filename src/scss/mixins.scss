@@ -1,6 +1,6 @@
 @mixin font($family) {
     @if $family == text {
-        font-family: "Nunito", "Arial", sans-serif;
+        font-family: "CascadiaMono", "Arial", sans-serif;
     } @else if $family == title {
         font-family: "Montserrat", "Arial", sans-serif;
     }
