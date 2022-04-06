@@ -1,0 +1,56 @@
+.encryption_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.encryption_header {
+  font-size: 20px;
+  margin-bottom: 10px;
+  order: 1;
+  text-align: center;
+}
+.encryption_text {
+  order: 2;
+  text-align: center;
+  font-size: 14px;
+}
+.encryption_label {
+  font-size: 20px;
+}
+.encryption_label {
+  content: "dasads";
+}
+.encryption_checkbox_wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.encryption_checkbox:checked ~ .encryption_label:after {
+  font-size: 20px;
+  content: attr(data-on);
+}
+.encryption_checkbox ~ .encryption_label:after {
+  font-size: 20px;
+  content: attr(data-off);
+}
+.encryption-input-text_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 500px 1fr;
+  gap: 20px;
+  padding: 150px 0;
+  background-image: url("../img/key-hole.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+}
+.encryption_input-text {
+  grid-column: 2 / 3;
+}
+.encryption_btn-key {
+  background: none;
+  border: none;
+  @include active;
+  cursor: pointer;
+}
