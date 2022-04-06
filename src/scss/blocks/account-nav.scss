@@ -1,0 +1,9 @@
+.account-nav {
+  margin-left: auto;
+  align-self: flex-end;
+}
+.account-nav_list {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 15px;
+}
