@@ -180,12 +180,12 @@ exports.cleanSrc = cleanSrc;
 
 const htmlBuild = () => {
 	return src('src/*.html')
-		.pipe(htmlmin({ collapseWhitespace: true }))
+		//.pipe(htmlmin({ collapseWhitespace: true }))
 		.pipe(dest('build'))
 }
 const stylesBuild = () => {
   return src('./src/css/main.css')
-    .pipe(cleanCSS({ level: 2 }))
+    //.pipe(cleanCSS({ level: 2 }))
     .pipe(dest('build/css/'));
 }
 const svgBuild = () => {
@@ -267,7 +267,7 @@ const resourcesBuild = () => {
 }
 const scriptsBuild = () => {
 	return src('src/js/app.js')
-	.pipe(uglify())
+	//.pipe(uglify())
 	.pipe(dest('build/js/'))
 }
 const scriptsLibsBuild = () => {
