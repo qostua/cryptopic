@@ -1,0 +1,43 @@
+.input-file {
+  background: none;
+  display: block;
+  @include size(300);
+
+  cursor: pointer;
+  border-radius: 36%;
+  opacity: 0;
+  position: relative;
+
+  //&::after
+}
+.encryption_input-file-label {
+  position: relative;
+  &::after {
+    @include size(300);
+    top: 0;
+    left: 0;
+    background-image: url("../img/dashed-border.svg");
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 1;
+  }
+}
+
+.encryption_form--uploaded .encryption_input-file-label {
+  &::before {
+    @include size(150);
+    margin: 70px;
+    background-image: url("../img/picture-icon.svg"), url("../img/loading.svg");
+    background-repeat: no-repeat;
+    background-color: #1CA574;
+    background-size: auto auto 70%;
+    background-position: center;
+    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 36%;
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 1;
+  }
+}

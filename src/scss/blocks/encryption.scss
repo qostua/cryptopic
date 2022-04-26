@@ -1,18 +1,84 @@
+.encryption {
+  height: calc(100vh - 130px);
+  min-height: 500px;
+}
 .encryption_form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.encryption_form--encrypt {
+
+}
+.encryption_form--encrypt.encryption_form--step-1 {
+  .encryption_text--text {
+    display: block;
+  }
+  .encryption_input-file-wrap {
+    display: none;
+  }
+  .encryption_input-text-wrap {
+    display: flex;
+  }
+  .encryption_header::before {
+    content: attr(first-data);
+  }
+}
+
+.encryption_form--encrypt.encryption_form--step-2 {
+  .encryption_text--img {
+    display: block;
+  }
+  .encryption_input-file-wrap {
+    display: flex;
+  }
+  .encryption_input-text-wrap {
+    display: none;
+  }
+  .encryption_header::before {
+    content: attr(second-data);
+  }
+  .encryption_btn--back {
+    display: block;
+  }
+}
+
+.encryption_form--decipher {
+  .encryption_input-text-wrap {
+    display: none;
+  }
+  .encryption_header {
+    display: none;
+  }
+  .encryption_text--img {
+    display: block;
+  }
+}
+.encryption_form--uploaded.encryption_form--step-2, .encryption_form--uploaded.encryption_form--step-1 {
+  .encryption_text--img {
+    display: none;
+  }
+  .encryption_text--text {
+    display: none;
+  }
+  .encryption_text--uploaded {
+    display: block;
+  }
+}
+.encryption_text-wrapper {
+  order: 2;
+}
 .encryption_header {
   font-size: 20px;
   margin-bottom: 10px;
-  order: 1;
   text-align: center;
+  order: 1;
 }
+
 .encryption_text {
-  order: 2;
   text-align: center;
   font-size: 14px;
+  display: none;
 }
 .encryption_label {
   font-size: 20px;
@@ -20,37 +86,78 @@
 .encryption_label {
   content: "dasads";
 }
-.encryption_checkbox_wrapper {
+.encryption_toggle-wrapper {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
 }
-.encryption_checkbox:checked ~ .encryption_label:after {
+.encryption_toggle:checked ~ .encryption_toggle-label:after {
   font-size: 20px;
   content: attr(data-on);
 }
-.encryption_checkbox ~ .encryption_label:after {
+.encryption_toggle ~ .encryption_toggle-label:after {
   font-size: 20px;
   content: attr(data-off);
 }
-.encryption-input-text_wrapper {
+.encryption_input-wrapper {
   display: grid;
   grid-template-columns: 1fr 500px 1fr;
+  align-items: center;
   gap: 20px;
-  padding: 150px 0;
+  height: 300px;
   background-image: url("../img/key-hole.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20%;
+  margin-bottom: 20px;
+}
+.encryption_input-text-wrapper--img {
+  background-size: 10%;
+  grid-template-columns: 1fr 300px 1fr;
+}
+.encryption_input-text-wrap {
+  display: flex;
 }
 .encryption_input-text {
+  width: 100%;
+}
+.encryption_input {
   grid-column: 2 / 3;
 }
-.encryption_btn-key {
+.encryption_btn {
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   @include active;
   cursor: pointer;
+  grid-row: 1 / 2;
+}
+.encryption_btn--back {
+  grid-column: 1 / 2;
+  display: none;
+}
+.encryption_btn--key {
+  @keyframes name {
+    0% {
+      padding: 0 5px;
+    }
+    100% {
+      padding: 0 0 0 10px;
+    }
+  }
+  animation: name 1s infinite alternate ease-in;
+  grid-column: 3 / 4;
+}
+.encryption_input-file-wrap {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: center;
+}
+.encryption_input-file {
+
 }
