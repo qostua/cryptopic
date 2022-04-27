@@ -17,17 +17,17 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 
 const svgSprite = require('gulp-svg-sprite');
-const imagemin = require('gulp-imagemin');
-const tinypng = require('gulp-tinypng-compress');
-const webp = require('gulp-webp');
-const responsive = require('gulp-responsive');
+//const imagemin = require('gulp-imagemin');
+//const tinypng = require('gulp-tinypng-compress');
+//const webp = require('gulp-webp');
+//const responsive = require('gulp-responsive');
 const newer = require('gulp-newer');
 
 const ttf2woff = require('gulp-ttf2woff');
 const ttf2woff2 = require('gulp-ttf2woff2');
 
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify-es').default;
+//const uglify = require('gulp-uglify-es').default;
 
 const scripts = () => {
 	return src([
@@ -85,64 +85,64 @@ const sprite = () => {
 		.pipe(svgSprite({ mode: { stack: { sprite: "../sprite.svg" } } }))
 		.pipe(dest('src/img/'));
 }
-const retina = () => {
-	src('src/img/src/**.jpg')
-		.pipe(newer('src/img/'))
-		.pipe(responsive({
-			'*.*': {
-				width: '50%',
-				quality: 100
-			}
-		})
-		.on('error', notify.onError()))
-		.pipe(dest('src/img/'));
-
-	src('src/img/src/**.png')
-		.pipe(newer('src/img/'))
-		.pipe(responsive({
-			'*.*': {
-				width: '50%',
-				quality: 100
-			}
-		})
-		.on('error', notify.onError()))
-		.pipe(dest('src/img/'));
-
-	src('src/img/src/**.jpg')
-		.pipe(newer({dest: 'src/img/', ext: '@2x.jpg'}))
-		.pipe(rename({ suffix: '@2x' }))
-		.pipe(dest('src/img/'));
-
-	return src('src/img/src/**.png')
-		.pipe(newer({dest: 'src/img/', ext: '@2x.png'}))
-		.pipe(rename({ suffix: '@2x' }))
-		.pipe(dest('src/img/'));
-}
-const convertWebp = () => {
-	src('src/img/src/**.{jpg,png}')
-		.pipe(newer({dest: 'src/img/', ext: '.webp'}))
-		.pipe(responsive({
-			'*.*': {
-				width: '50%',
-				format: 'webp',
-				quality: 100
-			}
-		})
-		.on('error', notify.onError()))
-		.pipe(dest('src/img/'));
-
-	return src('src/img/src/**.{jpg,png}')
-		.pipe(newer({dest: 'src/img/', ext: '@2x.webp'}))
-		.pipe(rename({ suffix: '@2x' }))
-		.pipe(responsive({
-			'*.*': {
-				format: 'webp',
-				quality: 100
-			}
-		})
-		.on('error', notify.onError()))
-		.pipe(dest('src/img/'));
-}
+// const retina = () => {
+// 	src('src/img/src/**.jpg')
+// 		.pipe(newer('src/img/'))
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				width: '50%',
+// 				quality: 100
+// 			}
+// 		})
+// 		.on('error', notify.onError()))
+// 		.pipe(dest('src/img/'));
+//
+// 	src('src/img/src/**.png')
+// 		.pipe(newer('src/img/'))
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				width: '50%',
+// 				quality: 100
+// 			}
+// 		})
+// 		.on('error', notify.onError()))
+// 		.pipe(dest('src/img/'));
+//
+// 	src('src/img/src/**.jpg')
+// 		.pipe(newer({dest: 'src/img/', ext: '@2x.jpg'}))
+// 		.pipe(rename({ suffix: '@2x' }))
+// 		.pipe(dest('src/img/'));
+//
+// 	return src('src/img/src/**.png')
+// 		.pipe(newer({dest: 'src/img/', ext: '@2x.png'}))
+// 		.pipe(rename({ suffix: '@2x' }))
+// 		.pipe(dest('src/img/'));
+// }
+// const convertWebp = () => {
+// 	src('src/img/src/**.{jpg,png}')
+// 		.pipe(newer({dest: 'src/img/', ext: '.webp'}))
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				width: '50%',
+// 				format: 'webp',
+// 				quality: 100
+// 			}
+// 		})
+// 		.on('error', notify.onError()))
+// 		.pipe(dest('src/img/'));
+//
+// 	return src('src/img/src/**.{jpg,png}')
+// 		.pipe(newer({dest: 'src/img/', ext: '@2x.webp'}))
+// 		.pipe(rename({ suffix: '@2x' }))
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				format: 'webp',
+// 				quality: 100
+// 			}
+// 		})
+// 		.on('error', notify.onError()))
+// 		.pipe(dest('src/img/'));
+// }
 const fonts = () => {
   src('src/fonts/src/*.ttf')
 		.pipe(newer({dest: 'src/fonts/', ext: '.woff'}))
@@ -162,7 +162,8 @@ const watchFiles = () => {
     });
     watch('src/*.html').on('change', browserSync.reload);
 		watch('src/scss/**/*.scss', styles);
-		watch('src/img/src/*.{jpg,png}', series(retina, convertWebp));
+		//watch('src/img/src/*.{jpg,png}',
+		//series(retina, convertWebp));
 		watch('src/img/src/*.svg', svg);
     watch('src/img/sprite/*.svg', sprite);
 		watch('src/fonts/src/*.{ttf,woff,woff2}', fonts);
@@ -174,7 +175,8 @@ const cleanSrc = () => {
 	return del(['src/css/*.*', 'src/fonts/*.*', 'src/img/*.*', 'src/js/*.map', 'src/js/app*.js'])
 }
 
-exports.default = parallel(htmlPicture, styles, svg, sprite, retina, convertWebp, scripts, scriptsLibs, scriptsModernizr, fonts, watchFiles);
+// exports.default = parallel(htmlPicture, styles, svg, sprite, retina, convertWebp, scripts, scriptsLibs, scriptsModernizr, fonts, watchFiles);
+exports.default = parallel(htmlPicture, styles, svg, sprite, scripts, scriptsLibs, scriptsModernizr, fonts, watchFiles);
 exports.htmlPicture = htmlPicture;
 exports.cleanSrc = cleanSrc;
 
@@ -190,73 +192,73 @@ const stylesBuild = () => {
 }
 const svgBuild = () => {
 	return src('src/img/*.svg')
-		.pipe(imagemin([
-			imagemin.svgo()
-		]))
+		// .pipe(imagemin([
+		// 	imagemin.svgo()
+		// ]))
 		.pipe(dest('build/img'));
 }
-const retinaBuild = () => {
-	src('src/img/src/**.jpg')
-		.pipe(responsive({
-			'*.*': {
-				width: '50%',
-				quality: 100
-			}
-		}))
-		.pipe(imagemin([
-			imagemin.mozjpeg({quality: 75, progressive: true})
-		]))
-		.pipe(dest('build/img/'));
-
-	src('src/img/src/**.png')
-		.pipe(responsive({
-			'*.*': {
-				width: '50%',
-				quality: 100
-			}
-		}))
-		.pipe(tinypng({
-            key: 'zMFJ4xYS9nzpH6qxDkvGdDLJjZSCGFtz',
-            log: true
-    }))
-		.pipe(dest('build/img/'));
-
-	src('src/img/src/**.jpg')
-		.pipe(rename({ suffix: '@2x' }))
-		.pipe(imagemin([
-			imagemin.mozjpeg({quality: 75, progressive: true})
-		]))
-		.pipe(dest('build/img/'));
-
-	return src('src/img/src/**.png')
-		.pipe(rename({ suffix: '@2x' }))
-		.pipe(tinypng({
-            key: 'zMFJ4xYS9nzpH6qxDkvGdDLJjZSCGFtz',
-            log: true
-    }))
-		.pipe(dest('build/img/'));
-}
-const convertWebpBuild = () => {
-	src('src/img/src/**.{jpg,png}')
-		.pipe(responsive({
-			'*.*': {
-				width: '50%',
-				format: 'webp',
-				quality: 75
-			}
-		}))
-		.pipe(dest('build/img/'));
-
-	return src('src/img/src/**.{jpg,png}')
-		.pipe(rename({ suffix: '@2x' }))
-		.pipe(responsive({
-			'*.*': {
-				format: 'webp',
-				quality: 75
-			}
-		}))
-		.pipe(dest('build/img/'));
-}
+// const retinaBuild = () => {
+// 	src('src/img/src/**.jpg')
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				width: '50%',
+// 				quality: 100
+// 			}
+// 		}))
+// 		.pipe(imagemin([
+// 			imagemin.mozjpeg({quality: 75, progressive: true})
+// 		]))
+// 		.pipe(dest('build/img/'));
+//
+// 	src('src/img/src/**.png')
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				width: '50%',
+// 				quality: 100
+// 			}
+// 		}))
+// 		.pipe(tinypng({
+//             key: 'zMFJ4xYS9nzpH6qxDkvGdDLJjZSCGFtz',
+//             log: true
+//     }))
+// 		.pipe(dest('build/img/'));
+//
+// 	src('src/img/src/**.jpg')
+// 		.pipe(rename({ suffix: '@2x' }))
+// 		.pipe(imagemin([
+// 			imagemin.mozjpeg({quality: 75, progressive: true})
+// 		]))
+// 		.pipe(dest('build/img/'));
+//
+// 	return src('src/img/src/**.png')
+// 		.pipe(rename({ suffix: '@2x' }))
+// 		.pipe(tinypng({
+//             key: 'zMFJ4xYS9nzpH6qxDkvGdDLJjZSCGFtz',
+//             log: true
+//     }))
+// 		.pipe(dest('build/img/'));
+// }
+// const convertWebpBuild = () => {
+// 	src('src/img/src/**.{jpg,png}')
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				width: '50%',
+// 				format: 'webp',
+// 				quality: 75
+// 			}
+// 		}))
+// 		.pipe(dest('build/img/'));
+//
+// 	return src('src/img/src/**.{jpg,png}')
+// 		.pipe(rename({ suffix: '@2x' }))
+// 		.pipe(responsive({
+// 			'*.*': {
+// 				format: 'webp',
+// 				quality: 75
+// 			}
+// 		}))
+// 		.pipe(dest('build/img/'));
+// }
 const fontsBuild = () => {
 	return src('src/fonts/*.{woff,woff2}')
 	.pipe(dest('build/fonts'))
@@ -272,12 +274,12 @@ const scriptsBuild = () => {
 }
 const scriptsLibsBuild = () => {
 	return src('src/js/app-libs.js')
-	.pipe(uglify())
+	//.pipe(uglify())
 	.pipe(dest('build/js/'))
 }
 const scriptsModernizrBuild = () => {
 	return src('src/js/app-modernizr.js')
-	.pipe(uglify())
+	//.pipe(uglify())
 	.pipe(dest('build/js/'))
 }
 
