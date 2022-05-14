@@ -16,7 +16,7 @@
     @include size(300);
     top: 0;
     left: 0;
-    background-image: url("./../img/dashed-border.svg");
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4NCiAgPGRlZnM+DQogICAgPHN0eWxlPg0KICAgICAgLmNscy0xIHsNCiAgICAgICAgZmlsbDogI2ZmZjsNCiAgICAgIH0NCiAgICA8L3N0eWxlPg0KICA8L2RlZnM+DQogIDxnIGlkPSLQodC70L7QuV8yIiBkYXRhLW5hbWU9ItCh0LvQvtC5IDIiPg0KICAgICAgPHJlY3Qgd2lkdGg9IjkwJSIgaGVpZ2h0PSI5MCUiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWRhc2hhcnJheT0iNyA2IiByeD0iMzUlIiB4PSI1IiB5PSI1Ii8+DQogIDwvZz4NCjwvc3ZnPg0K");
     content: "";
     display: block;
     position: absolute;
@@ -28,7 +28,7 @@
   &::before {
     @include size(150);
     margin: 70px;
-    background-image: url("./../img/picture-icon.svg"), url("./../img/loading.svg");
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHdpZHRoPSI0OCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMS44IDM0LjE1SDM2LjI1TDI4LjkgMjQuMzVMMjIuMyAzMi45TDE3LjY1IDI2LjU1Wk05IDQyUTcuOCA0MiA2LjkgNDEuMVE2IDQwLjIgNiAzOVY5UTYgNy44IDYuOSA2LjlRNy44IDYgOSA2SDM5UTQwLjIgNiA0MS4xIDYuOVE0MiA3LjggNDIgOVYzOVE0MiA0MC4yIDQxLjEgNDEuMVE0MC4yIDQyIDM5IDQyWk05IDM5SDM5UTM5IDM5IDM5IDM5UTM5IDM5IDM5IDM5VjlRMzkgOSAzOSA5UTM5IDkgMzkgOUg5UTkgOSA5IDlROSA5IDkgOVYzOVE5IDM5IDkgMzlROSAzOSA5IDM5Wk05IDlROSA5IDkgOVE5IDkgOSA5VjM5UTkgMzkgOSAzOVE5IDM5IDkgMzlROSAzOSA5IDM5UTkgMzkgOSAzOVY5UTkgOSA5IDlROSA5IDkgOVoiLz48L3N2Zz4NCg=="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNjAiIGhlaWdodD0iMjYwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+DQogIDxjaXJjbGUgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDEwMCAxMDApIiBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsIDAsIDAsIDAuMikiIHN0cm9rZS13aWR0aD0iMzAiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBzdHJva2UtZGFzaGFycmF5PSIzMTQiID4NCiAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJzdHJva2UtZGFzaG9mZnNldCIgdmFsdWVzPSIzMTQ7MCIgZHVyPSIxcyIvPg0KICA8L2NpcmNsZT4NCjwvc3ZnPg0K==");
     background-repeat: no-repeat;
     background-color: #1CA574;
     background-size: auto auto 70%;
