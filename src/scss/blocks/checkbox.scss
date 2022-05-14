@@ -20,13 +20,13 @@
   width: 16px;
   height: 16px;
   border-radius: 8px;
-  background-image: url("../img/lock.svg");
+  background-image: url("./../img/lock.svg");
   background-position: 55% 45%;
   background-repeat: no-repeat;
   background-size: 10px;
 }
 .toggle:checked::after {
   width: 36px;
-  background-image: url("../img/key.svg");
+  background-image: url("./../img/key.svg");
   background-size: 13px;
 }

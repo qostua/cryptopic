@@ -16,7 +16,7 @@
     @include size(300);
     top: 0;
     left: 0;
-    background-image: url("../img/dashed-border.svg");
+    background-image: url("./../img/dashed-border.svg");
     content: "";
     display: block;
     position: absolute;
@@ -28,7 +28,7 @@
   &::before {
     @include size(150);
     margin: 70px;
-    background-image: url("../img/picture-icon.svg"), url("../img/loading.svg");
+    background-image: url("./../img/picture-icon.svg"), url("./../img/loading.svg");
     background-repeat: no-repeat;
     background-color: #1CA574;
     background-size: auto auto 70%;
