@@ -80,7 +80,6 @@ let tapEncryptionBtnKey = function(evt) {
 
   if (getTypeEncryption() == 'encrypt') {
     if (getStepEncryption() == 1) {
-      encryptionData.text = encryptionInputText.value;
       goNextStep();
     } else {
       fetch(

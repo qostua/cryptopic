@@ -157,7 +157,7 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 8px;
-  background-image: url("../img/lock.svg");
+  background-image: url("./../img/lock.svg");
   background-position: 55% 45%;
   background-repeat: no-repeat;
   background-size: 10px;
@@ -165,7 +165,7 @@ body {
 
 .toggle:checked::after {
   width: 36px;
-  background-image: url("../img/key.svg");
+  background-image: url("./../img/key.svg");
   background-size: 13px;
 }
 
@@ -289,7 +289,7 @@ body {
   align-items: center;
   gap: 20px;
   height: 300px;
-  background-image: url("../img/key-hole.svg");
+  background-image: url("./../img/key-hole.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20%;
@@ -521,7 +521,7 @@ body {
   height: 300px;
   top: 0;
   left: 0;
-  background-image: url("../img/dashed-border.svg");
+  background-image: url("./../img/dashed-border.svg");
   content: "";
   display: block;
   position: absolute;
@@ -532,7 +532,7 @@ body {
   width: 150px;
   height: 150px;
   margin: 70px;
-  background-image: url("../img/picture-icon.svg"), url("../img/loading.svg");
+  background-image: url("./../img/picture-icon.svg"), url("./../img/loading.svg");
   background-repeat: no-repeat;
   background-color: #1CA574;
   background-size: auto auto 70%;
