@@ -10,36 +10,20 @@
 
 <body class="page">
   <a href="#maincontent" class="visuallyhidden skiptocontent">Skip to main content</a>
-  <header class="header page__header">
-    <b class="header__logo">
-      <a>crypto<span class="header__logo--accent">pic</span></a>
+  <header class="header page_header">
+    <b class="header_logo">
+      <a>crypto<span class="header_logo--accent">pic</span></a>
     </b>
     <nav class="main-nav">
       <ul class="main-nav_list">
         <li class="main-nav_item">
-          <a class="main-nav_link link" href="#">info</a>
+          <a class="main-nav_link link" href="#info_section">info</a>
         </li>
-        <li class="main-nav_item">
+        <!-- <li class="main-nav_item">
           <a class="main-nav_link link" href="#">more</a>
-        </li>
+        </li> -->
         <li class="main-nav_item">
-          <a class="main-nav_link link" href="#">about</a>
-        </li>
-      </ul>
-    </nav>
-    <nav class="account-nav">
-      <ul class="account-nav_list">
-        <li class="account-nav_item">
-          <a class="account-nav_link link" href="#">
-            <span class="visuallyhidden">настройки аккаунта</span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" fill="currentColor" role="img" aria-label="Аккаунт"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-          </a>
-        </li>
-        <li class="account-nav_item">
-          <a class="account-nav_link link" href="#">
-            <span class="visuallyhidden">переключить тему</span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" fill="currentColor" role="img" aria-label="Переключить тему"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"/></svg>
-          </a>
+          <a class="main-nav_link link" href="#about_section">about</a>
         </li>
       </ul>
     </nav>
@@ -82,52 +66,60 @@
       </form>
     </section>
     <section class="info">
-      <h2 class="info__title">основная информация</h2>
-      <p class="info__text">cтеганография — способ передачи или хранения информации, позволяющая спрятать передаваемые данные в некотором контейнере, таким образом скрыв сам факт передачи информации.</p>
-      <section class="info__how info__how--encrypt">
-        <h3 class="info__how-title">как зашифровать сообщение?</h3>
-        <div class="info__how-scheme">
-          <div class="info__how-scheme-icon info__how-scheme-icon--active" data-count="1">
+      <h2 class="info_title" id="info_section">как использовать</h2>
+      <p class="info_text">cтеганография — способ передачи или хранения информации, позволяющая спрятать передаваемые данные в некотором контейнере, таким образом скрыв сам факт передачи информации.</p>
+      <section class="info_how info_how--encrypt">
+        <h3 class="info_how-title">как зашифровать сообщение?</h3>
+        <div class="info_how-scheme">
+          <div class="info_how-scheme-icon info_how-scheme-icon--active" data-count="1">
             <svg height="90" width="90" viewbox="0 0 48 48" fill="white">
               <path d="M15.95 35.5H32.05V32.5H15.95ZM15.95 27H32.05V24H15.95ZM11 44Q9.8 44 8.9 43.1Q8 42.2 8 41V7Q8 5.8 8.9 4.9Q9.8 4 11 4H29.05L40 14.95V41Q40 42.2 39.1 43.1Q38.2 44 37 44ZM27.55 16.3V7H11Q11 7 11 7Q11 7 11 7V41Q11 41 11 41Q11 41 11 41H37Q37 41 37 41Q37 41 37 41V16.3ZM11 7V16.3V7V16.3V41Q11 41 11 41Q11 41 11 41Q11 41 11 41Q11 41 11 41V7Q11 7 11 7Q11 7 11 7Z"/>
             </svg>
           </div>
-          <div class="info__how-scheme-icon" data-count="2">
+          <div class="info_how-scheme-icon" data-count="2">
             <svg height="90" width="90" viewbox="0 0 48 48" fill="white">
               <path d="M11.8 34.15H36.25L28.9 24.35L22.3 32.9L17.65 26.55ZM9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39ZM9 9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Q9 39 9 39Q9 39 9 39V9Q9 9 9 9Q9 9 9 9Z"/>
             </svg>
           </div>
-          <div class="info__how-scheme-icon" data-count="3">
+          <div class="info_how-scheme-icon" data-count="3">
             <svg height="90" width="90" viewbox="0 0 48 48" fill="white">
               <path d="M11.8 34.15H36.25L28.9 24.35L22.3 32.9L17.65 26.55ZM9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39ZM9 9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Q9 39 9 39Q9 39 9 39V9Q9 9 9 9Q9 9 9 9Z"/>
             </svg>
           </div>
         </div>
-        <div class="info__how-text info__how-text--1  info__how-text--active">напишите сообщение, которое вы хотите зашифровать</div>
-        <div class="info__how-text info__how-text--2">выберите картинку, в которой будет спрятано сообщение</div>
-        <div class="info__how-text info__how-text--3">скакчайте картинку, в которой теперь хранится ваше сообщение</div>
+        <div class="info_how-text info_how-text--1  info_how-text--active" data-count="1">напишите сообщение, которое вы хотите зашифровать</div>
+        <div class="info_how-text info_how-text--2" data-count="2">выберите картинку, в которой будет спрятано сообщение</div>
+        <div class="info_how-text info_how-text--3" data-count="3">скачайте картинку, в которой теперь хранится ваше сообщение</div>
       </section>
-      <section class="info__how info__how--decipher">
-        <h3 class="info__how-title">как расашифровать сообщение?</h3>
-        <div class="info__how-scheme">
-          <div class="info__how-scheme-icon info__how-scheme-icon--active" data-count="1">
+      <section class="info_how info_how--decipher">
+        <h3 class="info_how-title">как расашифровать сообщение?</h3>
+        <div class="info_how-scheme">
+          <div class="info_how-scheme-icon info_how-scheme-icon--active" data-count="1">
             <svg height="90" width="90" viewbox="0 0 48 48" fill="white">
               <path d="M11.8 34.15H36.25L28.9 24.35L22.3 32.9L17.65 26.55ZM9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39ZM9 9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Q9 39 9 39Q9 39 9 39V9Q9 9 9 9Q9 9 9 9Z"/>
             </svg>
           </div>
-          <div class="info__how-scheme-icon" data-count="2">
+          <div class="info_how-scheme-icon" data-count="2">
             <svg height="90" width="90" viewbox="0 0 48 48" fill="white">
               <path d="M15.95 35.5H32.05V32.5H15.95ZM15.95 27H32.05V24H15.95ZM11 44Q9.8 44 8.9 43.1Q8 42.2 8 41V7Q8 5.8 8.9 4.9Q9.8 4 11 4H29.05L40 14.95V41Q40 42.2 39.1 43.1Q38.2 44 37 44ZM27.55 16.3V7H11Q11 7 11 7Q11 7 11 7V41Q11 41 11 41Q11 41 11 41H37Q37 41 37 41Q37 41 37 41V16.3ZM11 7V16.3V7V16.3V41Q11 41 11 41Q11 41 11 41Q11 41 11 41Q11 41 11 41V7Q11 7 11 7Q11 7 11 7Z"/>
             </svg>
           </div>
         </div>
-        <div class="info__how-text info__how-text--1  info__how-text--active">отправьте изображение, в котором зашифровано сообщение</div>
-        <div class="info__how-text info__how-text--2">прочитайте сообщение, которое было зашифровано в картинке</div>
+        <div class="info_how-text info_how-text--1  info_how-text--active" data-count="1">отправьте изображение, в котором зашифровано сообщение</div>
+        <div class="info_how-text info_how-text--2" data-count="2">прочитайте сообщение, которое было зашифровано в картинке</div>
       </section>
+    </section>
+    <section class="about" id="about_section">
+      <h3 class="about_title">о нас</h3>
+      <div class="about_list">
+        <div class="about_person">
+
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer page__footer">
+  <footer class="footer page_footer">
 
   </footer>
 

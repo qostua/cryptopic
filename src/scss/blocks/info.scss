@@ -3,12 +3,12 @@
   margin-left: auto;
   margin-right: auto;
 }
-.info__title {
+.info_title {
   text-align: center;
-  font-size: 36px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
-.info__text {
+.info_text {
   font-weight: 400;
   text-align: center;
   font-size: 20px;
@@ -17,22 +17,22 @@
   border-radius: 20px;
   margin-bottom: 30px;
 }
-.info__how {
-  margin-bottom: 30px;
+.info_how {
+  margin-bottom: 24px;
 }
-.info__how-title {
+.info_how-title {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
 }
-.info__how-scheme {
+.info_how-scheme {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 60px;
   margin-bottom: 20px;
 }
-.info__how-scheme-icon {
+.info_how-scheme-icon {
   cursor: pointer;
   position: relative;
   padding-bottom: 60px;
@@ -71,10 +71,10 @@
     background-color: rgba(0, 0, 0, 0.38);
   }
 }
-.info__how-scheme-icon--active::after {
+.info_how-scheme-icon--active::after {
   background-color: rgba(0, 0, 0, 0.38);
 }
-.info__how-text {
+.info_how-text {
   padding: 90px 70px 20px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.38);
@@ -83,7 +83,7 @@
   position: relative;
 
   &::after {
-    content: "1";
+    content: attr(data-count);
     font-size: 36px;
     position: absolute;
     top: 25px;
@@ -97,6 +97,6 @@
     background-color: rgba(0, 0, 0, 0.38);
   }
 }
-.info__how-text--active {
+.info_how-text--active {
   display: block;
 }
