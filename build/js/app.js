@@ -6,9 +6,11 @@ let encryptionBtnKey = document.querySelector(".encryption_btn--key");
 let encryptionBtnBack = document.querySelector(".encryption_btn--back");
 
 let encryptionData = {
+  operation: "",
   text: "",
   picture: "",
   picture_length: "",
+  picture_type: "",
 }
 let toggleTypeEncryption = function() {
   toggleTypeEncryptionClass();
@@ -41,11 +43,10 @@ let showUploadedPic = function(evt) {
 
   reader.onload = function(e) {
 
-    console.log('adsasd');
     var img = document.createElement('img');
 
     img.onload = function() {
-      console.log(this.width+'x'+this.height); // наконец-то результат
+      console.log(this.width+'x'+this.height);
     };
 
     img.src = e.target.result;
@@ -64,6 +65,7 @@ let getPic = function() {
     encryptionData.picture = evt.target.result;
 
     img.src = evt.target.result;
+    encryptionData.picture_type = img.src.slice(img.src.indexOf("/") + 1, img.src.indexOf(";"));
 
     let showSize = function() {
       encryptionData.picture_length = img.width * img.height;
@@ -82,12 +84,19 @@ let tapEncryptionBtnKey = function(evt) {
     if (getStepEncryption() == 1) {
       goNextStep();
     } else {
+      encryptionData.operation = 'encrypt';
+      encryptionData.text = encryptionInputText.value;
+      let cookie = document.cookie;
+      let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
       fetch(
+        // '/req',
         'https://jsonplaceholder.typicode.com/posts',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'X-Requested-With' : 'XMLHttpRequest',
+            'X-CSRFToken': csrfToken
           },
           body: JSON.stringify(encryptionData),
         })
@@ -96,13 +105,18 @@ let tapEncryptionBtnKey = function(evt) {
     }
   }
   if (getTypeEncryption() == 'decipher') {
+    encryptionData.operation = 'decipher';
     delete encryptionData.text;
+    let cookie = document.cookie;
+    let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
     fetch(
+      // '/req',
       'https://jsonplaceholder.typicode.com/posts',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken
         },
         body: JSON.stringify(encryptionData),
       })
@@ -144,47 +158,57 @@ encryptionBtnBack.addEventListener("click", goPreviousStep);
 
 //раздел info
 
-// let sectionEncrypt = document.querySelector(".info__how--encrypt");
-// let sectionEncryptIcon = sectionEncrypt.querySelectorAll(".info__how-scheme-icon");
-//
-// sectionEncrypt.addEventListener('click', function(event) {
-//
-//     if (event.target.className === 'info__how-scheme-icon') {
-//       for (let item of Array.from(sectionEncryptIcon)) {
-//         item.classList.remove("info__how-scheme-icon--active");
-//       }
-//       event.target.classList.add("info__how-scheme-icon--active");
-//       console.log(event.target);
-//     }
-//
-//   });
+let info = document.querySelector('.info');
+let infoHowEncrypt = info.querySelector('.info_how--encrypt');
+let schemeEncrypt = infoHowEncrypt.querySelector('.info_how-scheme');
+let schemeEncryptIcons = schemeEncrypt.querySelectorAll('.info_how-scheme-icon');
+let schemeEncryptIconsArr = Array.from(schemeEncryptIcons);
+let schemeEncryptTexts = infoHowEncrypt.querySelectorAll('.info_how-text');
+let schemeEncryptTextsArr = Array.from(schemeEncryptTexts);
 
-//AJAX
+schemeEncrypt.addEventListener('click', function(event) {
+  let icon = event.target.closest(".info_how-scheme-icon");
 
-const ajaxSend = async (formData) => {
-  const fetchResp = await fetch('mail.php', {
-    method: 'POST',
-    body: formData
-  });
-  if (!fetchResp.ok) {
-    throw new Error(`Ошибка по адресу ${url}, статус ошибки ${fetchResp.status}`);
+  if (icon) {
+    for (let icon of schemeEncryptIconsArr) {
+      icon.classList.remove("info_how-scheme-icon--active");
+    }
+    icon.classList.add("info_how-scheme-icon--active");
+
+    let iconNum = icon.dataset.count;
+
+    for (let text of schemeEncryptTextsArr) {
+      text.classList.remove("info_how-text--active");
+    }
+    infoHowEncrypt.querySelector(`.info_how-text--${iconNum}`).classList.add("info_how-text--active");
   }
-  return await fetchResp.text();
-};
-
-formEncription.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    let formData = new FormData(this);
-    formData = Object.fromEntries(formData);
-
-    ajaxSend(formData)
-      .then((response) => {
-        console.log(response);
-        form.reset(); // очищаем поля формы
-      })
-      .catch((err) => console.error(err))
 });
+
+let infoHowDecipher = info.querySelector('.info_how--decipher');
+let schemeDecipher = infoHowDecipher.querySelector('.info_how-scheme');
+let schemeDecipherIcons = schemeDecipher.querySelectorAll('.info_how-scheme-icon');
+let schemeDecipherIconsArr = Array.from(schemeDecipherIcons);
+let schemeDecipherTexts = infoHowDecipher.querySelectorAll('.info_how-text');
+let schemeDecipherTextsArr = Array.from(schemeDecipherTexts);
+
+schemeDecipher.addEventListener('click', function(event) {
+  let icon = event.target.closest(".info_how-scheme-icon");
+
+  if (icon) {
+    for (let icon of schemeDecipherIconsArr) {
+      icon.classList.remove("info_how-scheme-icon--active");
+    }
+    icon.classList.add("info_how-scheme-icon--active");
+
+    let iconNum = icon.dataset.count;
+
+    for (let text of schemeDecipherTextsArr) {
+      text.classList.remove("info_how-text--active");
+    }
+    infoHowDecipher.querySelector(`.info_how-text--${iconNum}`).classList.add("info_how-text--active");
+  }
+});
+
 //# sourceMappingURL=app.js.map
 
 //# sourceMappingURL=app.js.map

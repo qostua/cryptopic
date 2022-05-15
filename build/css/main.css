@@ -102,17 +102,6 @@ body {
   margin-left: auto;
 }
 
-.account-nav {
-  margin-left: auto;
-  align-self: flex-end;
-}
-
-.account-nav_list {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 15px;
-}
-
 .btn {
   display: inline-block;
   padding: 10px 10px;
@@ -374,11 +363,11 @@ body {
   padding: 50px 75px;
 }
 
-.header__logo {
+.header_logo {
   font-size: 30px;
 }
 
-.header__logo--accent {
+.header_logo--accent {
   color: #96E4DF;
 }
 
@@ -388,13 +377,13 @@ body {
   margin-right: auto;
 }
 
-.info__title {
+.info_title {
   text-align: center;
-  font-size: 36px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
-.info__text {
+.info_text {
   font-weight: 400;
   text-align: center;
   font-size: 20px;
@@ -404,17 +393,17 @@ body {
   margin-bottom: 30px;
 }
 
-.info__how {
-  margin-bottom: 30px;
+.info_how {
+  margin-bottom: 24px;
 }
 
-.info__how-title {
+.info_how-title {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.info__how-scheme {
+.info_how-scheme {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -422,13 +411,13 @@ body {
   margin-bottom: 20px;
 }
 
-.info__how-scheme-icon {
+.info_how-scheme-icon {
   cursor: pointer;
   position: relative;
   padding-bottom: 60px;
 }
 
-.info__how-scheme-icon::after {
+.info_how-scheme-icon::after {
   content: attr(data-count);
   font-size: 36px;
   position: absolute;
@@ -442,7 +431,7 @@ body {
   border-radius: 50%;
 }
 
-.info__how-scheme-icon:nth-child(2)::before {
+.info_how-scheme-icon:nth-child(2)::before {
   content: "+";
   font-size: 36px;
   top: 30px;
@@ -450,7 +439,7 @@ body {
   position: absolute;
 }
 
-.info__how-scheme-icon:last-child::before {
+.info_how-scheme-icon:last-child::before {
   content: "=";
   font-size: 36px;
   top: 30px;
@@ -458,21 +447,21 @@ body {
   position: absolute;
 }
 
-.info__how-scheme-icon:hover::after {
+.info_how-scheme-icon:hover::after {
   opacity: 0.6;
   background-color: rgba(0, 0, 0, 0.38);
 }
 
-.info__how-scheme-icon:active::after {
+.info_how-scheme-icon:active::after {
   opacity: 0.3;
   background-color: rgba(0, 0, 0, 0.38);
 }
 
-.info__how-scheme-icon--active::after {
+.info_how-scheme-icon--active::after {
   background-color: rgba(0, 0, 0, 0.38);
 }
 
-.info__how-text {
+.info_how-text {
   padding: 90px 70px 20px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.38);
@@ -481,8 +470,8 @@ body {
   position: relative;
 }
 
-.info__how-text::after {
-  content: "1";
+.info_how-text::after {
+  content: attr(data-count);
   font-size: 36px;
   position: absolute;
   top: 25px;
@@ -497,7 +486,7 @@ body {
   background-color: rgba(0, 0, 0, 0.38);
 }
 
-.info__how-text--active {
+.info_how-text--active {
   display: block;
 }
 
