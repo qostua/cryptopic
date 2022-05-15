@@ -6,9 +6,11 @@ let encryptionBtnKey = document.querySelector(".encryption_btn--key");
 let encryptionBtnBack = document.querySelector(".encryption_btn--back");
 
 let encryptionData = {
+  operation: "",
   text: "",
   picture: "",
   picture_length: "",
+  picture_type: "",
 }
 let toggleTypeEncryption = function() {
   toggleTypeEncryptionClass();
@@ -41,11 +43,10 @@ let showUploadedPic = function(evt) {
 
   reader.onload = function(e) {
 
-    console.log('adsasd');
     var img = document.createElement('img');
 
     img.onload = function() {
-      console.log(this.width+'x'+this.height); // наконец-то результат
+      console.log(this.width+'x'+this.height);
     };
 
     img.src = e.target.result;
@@ -64,6 +65,7 @@ let getPic = function() {
     encryptionData.picture = evt.target.result;
 
     img.src = evt.target.result;
+    encryptionData.picture_type = img.src.slice(img.src.indexOf("/") + 1, img.src.indexOf(";"));
 
     let showSize = function() {
       encryptionData.picture_length = img.width * img.height;
@@ -82,12 +84,19 @@ let tapEncryptionBtnKey = function(evt) {
     if (getStepEncryption() == 1) {
       goNextStep();
     } else {
+      encryptionData.operation = 'encrypt';
+      encryptionData.text = encryptionInputText.value;
+      let cookie = document.cookie;
+      let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
       fetch(
+        // '/req',
         'https://jsonplaceholder.typicode.com/posts',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'X-Requested-With' : 'XMLHttpRequest',
+            'X-CSRFToken': csrfToken
           },
           body: JSON.stringify(encryptionData),
         })
@@ -96,13 +105,18 @@ let tapEncryptionBtnKey = function(evt) {
     }
   }
   if (getTypeEncryption() == 'decipher') {
+    encryptionData.operation = 'decipher';
     delete encryptionData.text;
+    let cookie = document.cookie;
+    let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
     fetch(
+      // '/req',
       'https://jsonplaceholder.typicode.com/posts',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken
         },
         body: JSON.stringify(encryptionData),
       })
