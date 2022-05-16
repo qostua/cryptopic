@@ -89,6 +89,7 @@
     display: block;
   }
 }
+
 .encryption_form--uploaded.encryption_form--step-2, .encryption_form--uploaded.encryption_form--step-1 {
   .encryption_text--img {
     display: block;
@@ -111,6 +112,15 @@
     display: none !important;
   }
   .encryption_text--text {
+    display: none;
+  }
+  .encryption_input-text-wrap {
+    display: none !important;
+  }
+  .encryption_input-file-wrap {
+    display: flex !important;
+  }
+  .encryption_btn--key {
     display: none;
   }
 }
