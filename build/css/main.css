@@ -146,16 +146,10 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 8px;
-  background-image: url("./../img/lock.svg");
-  background-position: 55% 45%;
-  background-repeat: no-repeat;
-  background-size: 10px;
 }
 
 .toggle:checked::after {
   width: 36px;
-  background-image: url("./../img/key.svg");
-  background-size: 13px;
 }
 
 .encryption {
@@ -185,6 +179,10 @@ body {
   content: attr(first-data);
 }
 
+.encryption_form--encrypt.encryption_form--step-1 .encryption_text--deciphe {
+  display: none;
+}
+
 .encryption_form--encrypt.encryption_form--step-2 .encryption_text--img {
   display: block;
 }
@@ -205,20 +203,60 @@ body {
   display: block;
 }
 
-.encryption_form--decipher .encryption_input-text-wrap {
+.encryption_form--encrypt.encryption_form--step-2 .encryption_text--deciphe {
   display: none;
 }
 
-.encryption_form--decipher .encryption_header {
+.encryption_form--decipher.encryption_form--step-1 .encryption_input-text-wrap {
   display: none;
 }
 
-.encryption_form--decipher .encryption_text--img {
+.encryption_form--decipher.encryption_form--step-1 .encryption_header {
+  display: none;
+}
+
+.encryption_form--decipher.encryption_form--step-1 .encryption_text--img {
+  display: block;
+}
+
+.encryption_form--decipher.encryption_form--step-1 .encryption_text--uploaded {
+  display: none;
+}
+
+.encryption_form--decipher.encryption_form--step-1 .encryption_text--deciphe {
+  display: none;
+}
+
+.encryption_form--decipher.encryption_form--step-2 .encryption_input-text-wrap {
+  display: flex;
+}
+
+.encryption_form--decipher.encryption_form--step-2 .encryption_input-file-wrap {
+  display: none;
+}
+
+.encryption_form--decipher.encryption_form--step-2 .encryption_header {
+  display: none;
+}
+
+.encryption_form--decipher.encryption_form--step-2 .encryption_text--img {
+  display: none !important;
+}
+
+.encryption_form--decipher.encryption_form--step-2 .encryption_text--uploaded {
+  display: none;
+}
+
+.encryption_form--decipher.encryption_form--step-2 .encryption_btn--key {
+  display: none;
+}
+
+.encryption_form--decipher.encryption_form--step-2 .encryption_text--deciphe {
   display: block;
 }
 
 .encryption_form--uploaded.encryption_form--step-2 .encryption_text--img, .encryption_form--uploaded.encryption_form--step-1 .encryption_text--img {
-  display: none;
+  display: block;
 }
 
 .encryption_form--uploaded.encryption_form--step-2 .encryption_text--text, .encryption_form--uploaded.encryption_form--step-1 .encryption_text--text {
@@ -226,7 +264,23 @@ body {
 }
 
 .encryption_form--uploaded.encryption_form--step-2 .encryption_text--uploaded, .encryption_form--uploaded.encryption_form--step-1 .encryption_text--uploaded {
-  display: block;
+  display: none;
+}
+
+.encryption_form--updated .encryption_header::before {
+  content: attr(third-data) !important;
+}
+
+.encryption_form--updated .encryption_text--uploaded {
+  display: block !important;
+}
+
+.encryption_form--updated .encryption_text--img {
+  display: none !important;
+}
+
+.encryption_form--updated .encryption_text--text {
+  display: none;
 }
 
 .encryption_text-wrapper {
@@ -260,6 +314,47 @@ body {
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.encryption_toggle-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 68px;
+  transition-duration: 0.5s;
+}
+
+.encryption_toggle-icon-key {
+  opacity: 0;
+  transform-origin: 50% 50%;
+  transform: scale(0);
+  transition-duration: 0.5s;
+}
+
+.encryption_toggle-icon-lock {
+  opacity: 1;
+  transform-origin: 50% 50%;
+  transform: scale(1);
+  transition-duration: 0.5s;
+}
+
+.encryption_toggle:checked ~ .encryption_toggle-icon {
+  right: 65px;
+  transition-duration: 0.5s;
+}
+
+.encryption_toggle:checked ~ .encryption_toggle-icon .encryption_toggle-icon-key {
+  opacity: 1;
+  transform-origin: 50% 50%;
+  transform: scale(1);
+  transition-duration: 0.5s;
+}
+
+.encryption_toggle:checked ~ .encryption_toggle-icon .encryption_toggle-icon-lock {
+  opacity: 0;
+  transform-origin: 50% 50%;
+  transform: scale(0);
+  transition-duration: 0.5s;
 }
 
 .encryption_toggle:checked ~ .encryption_toggle-label:after {
@@ -354,6 +449,8 @@ body {
   grid-row: 1 / 2;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .header {
@@ -501,37 +598,99 @@ body {
   position: relative;
 }
 
+.input-file:hover ~ .encryption_input-file-label .encryption_input-file-border {
+  color: rgba(0, 0, 0, 0.38);
+  transition: 0.5s;
+}
+
+.input-file:active ~ .encryption_input-file-label .encryption_input-file-border {
+  color: rgba(0, 0, 0, 0.15);
+  transition: 0.1s;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.encryption_form--uploaded .encryption_input-file-border {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
 .encryption_input-file-label {
   position: relative;
-}
-
-.encryption_input-file-label::after {
+  z-index: -1;
   width: 300px;
   height: 300px;
-  top: 0;
-  left: 0;
-  background-image: url("./../img/dashed-border.svg");
-  content: "";
-  display: block;
   position: absolute;
-  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.encryption_form--uploaded .encryption_input-file-label::before {
+.encryption_input-file-border {
+  color: white;
+  -webkit-animation: ease-in-out size 5s infinite;
+  animation: ease-in-out size 5s infinite;
+}
+
+@-webkit-keyframes size {
+  0% {
+    width: 100%;
+  }
+  80% {
+    width: 100%;
+  }
+  90% {
+    width: 95%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes size {
+  0% {
+    width: 100%;
+  }
+  80% {
+    width: 100%;
+  }
+  90% {
+    width: 95%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.encryption_input-img-wrap {
+  display: none;
   width: 150px;
   height: 150px;
-  margin: 70px;
-  background-image: url("./../img/picture-icon.svg"), url("./../img/loading.svg");
-  background-repeat: no-repeat;
-  background-color: #1CA574;
-  background-size: auto auto 70%;
-  background-position: center;
-  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.3);
-  border-radius: 36%;
-  content: "";
-  display: block;
   position: absolute;
-  opacity: 1;
+  border-radius: 36%;
+  border: 10px solid rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+}
+
+.encryption_form--uploaded .encryption_input-img-wrap {
+  display: block;
+}
+
+.encryption_form--updated .encryption_input-file-border {
+  transform: scale(0);
+}
+
+.encryption_form--updated .encryption_input-img-wrap {
+  transition: 0.5s;
+  width: 280px;
+  height: 280px;
+}
+
+.encryption_input-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .input-text {

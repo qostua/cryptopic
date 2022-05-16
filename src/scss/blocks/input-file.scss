@@ -7,37 +7,68 @@
   border-radius: 36%;
   opacity: 0;
   position: relative;
-
-  //&::after
+}
+.input-file:hover ~ .encryption_input-file-label .encryption_input-file-border {
+  color: rgba(0,0,0,0.38);
+  transition: 0.5s;
+}
+.input-file:active ~ .encryption_input-file-label .encryption_input-file-border {
+  color: rgba(0,0,0,0.15);
+  transition: 0.1s;
+  animation-play-state: paused;
+}
+.encryption_form--uploaded .encryption_input-file-border {
+  animation-play-state: paused;
 }
 .encryption_input-file-label {
   position: relative;
-  &::after {
-    @include size(300);
-    top: 0;
-    left: 0;
-    background-image: url("./../img/dashed-border.svg");
-    content: "";
-    display: block;
-    position: absolute;
-    opacity: 1;
+  z-index: -1;
+  @include size(300);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.encryption_input-file-border {
+  // width: 100%;
+  color: white;
+  @keyframes size {
+    0% {
+      width: 100%;
+    }
+    80% {
+      width: 100%;
+    }
+    90% {
+      width: 95%;
+    }
+    100% {
+      width: 100%;
+    }
   }
+  animation: ease-in-out size 5s infinite;
 }
 
-.encryption_form--uploaded .encryption_input-file-label {
-  &::before {
-    @include size(150);
-    margin: 70px;
-    background-image: url("./../img/picture-icon.svg"), url("./../img/loading.svg");
-    background-repeat: no-repeat;
-    background-color: #1CA574;
-    background-size: auto auto 70%;
-    background-position: center;
-    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.3);
-    border-radius: 36%;
-    content: "";
-    display: block;
-    position: absolute;
-    opacity: 1;
-  }
+.encryption_input-img-wrap {
+  display: none;
+  @include size(150);
+  position: absolute;
+  border-radius: 36%;
+  border: 10px solid rgba(0,0,0,0.38);
+  overflow: hidden;
+}
+.encryption_form--uploaded .encryption_input-img-wrap {
+  display: block;
+}
+.encryption_form--updated .encryption_input-file-border {
+  transform: scale(0);
+}
+.encryption_form--updated .encryption_input-img-wrap {
+  transition: 0.5s;
+  @include size(280);
+}
+.encryption_input-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

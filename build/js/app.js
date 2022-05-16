@@ -16,12 +16,6 @@ let toggleTypeEncryption = function() {
   toggleTypeEncryptionClass();
   cleanEncryptionForm();
   removeUploadedPic();
-
-  if (getTypeEncryption() == "decipher") {
-    encryptionInputText.disabled = true;
-  } else {
-    encryptionInputText.disabled = false;
-  }
 }
 
 let toggleTypeEncryptionClass = function() {
@@ -65,6 +59,8 @@ let getPic = function() {
     encryptionData.picture = evt.target.result;
 
     img.src = evt.target.result;
+    img.className = "encryption_input-img";
+    document.querySelector(".encryption_input-img-wrap").append(img);
     encryptionData.picture_type = img.src.slice(img.src.indexOf("/") + 1, img.src.indexOf(";"));
 
     let showSize = function() {
@@ -76,7 +72,15 @@ let getPic = function() {
 
   reader.addEventListener("load", createImg);
 }
-
+let updateSrcImg = function(newSrc) {
+  goNextStep();
+  document.querySelector('.encryption_form').classList.add("encryption_form--updated");
+  document.querySelector('.encryption_input-img').src = newSrc;
+}
+let showText = function(text) {
+  goNextStep();
+  document.querySelector('.encryption_input-text').value = text;
+}
 let tapEncryptionBtnKey = function(evt) {
   evt.preventDefault();
 
@@ -101,7 +105,7 @@ let tapEncryptionBtnKey = function(evt) {
           body: JSON.stringify(encryptionData),
         })
         .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then((json) => updateSrcImg(json.picture));
     }
   }
   if (getTypeEncryption() == 'decipher') {
@@ -121,7 +125,7 @@ let tapEncryptionBtnKey = function(evt) {
         body: JSON.stringify(encryptionData),
       })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => showText(json.picture_length));
   }
 }
 
@@ -139,12 +143,18 @@ let getStepEncryption = function() {
 }
 
 let goNextStep = function() {
+  numberStep = +formEncription.className.split("encryption_form--step-")[1][0];
+
   formEncription.classList.remove("encryption_form--step-1");
-  formEncription.classList.add("encryption_form--step-2");
+  formEncription.classList.remove("encryption_form--step-2");
+  formEncription.classList.add(`encryption_form--step-${numberStep + 1}`);
 }
 let goPreviousStep = function() {
-  formEncription.classList.add("encryption_form--step-1");
+  numberStep = +formEncription.className.split("encryption_form--step-")[1][0];
+
+  formEncription.classList.remove("encryption_form--step-3");
   formEncription.classList.remove("encryption_form--step-2");
+  formEncription.classList.add(`encryption_form--step-${numberStep - 1}`);
 }
 
 
